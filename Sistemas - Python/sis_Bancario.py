@@ -10,4 +10,3 @@ def obtener_respuesta():
         print("Salir del sistema...")
     return "-------"
 
-print(obtener_respuesta())
