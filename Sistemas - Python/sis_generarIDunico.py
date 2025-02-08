@@ -17,6 +17,7 @@ def generarIDunico():
     binario = randint(1000,9999)
     codigo_usuario = f"{nombre_usuario}{apellido_usuario}{cumpleaños_usuario}{binario}"
     return codigo_usuario
+
 codigo_final = generarIDunico()
 
 print(f"\nHola {nombre}: ")

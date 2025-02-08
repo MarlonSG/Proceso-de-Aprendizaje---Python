@@ -23,14 +23,14 @@ agenda = {
 }
 print(agenda) # IMPRIMIR AGENDA
 
-#OBTENER INFORMACION
+# OBTENER INFORMACION
 print(f"""Informacion de Contacto de Juan:
     Telefono: {agenda["Juan"]["Telefono"]}
     Correo: {agenda["Juan"]["Correo"]} 
     Direccion: {agenda["Juan"]["Direccion"]}
 """)
 
-#Agregar Informacion (Contacto)
+# Agregar Informacion (Contacto)
 agenda["Sandra"] = {
     "Telefono": "9875643121",
     "Correo": "sandra@gmail.com",
@@ -38,12 +38,12 @@ agenda["Sandra"] = {
 }
 print(agenda)
 
-#Eliminar Dato
+# Eliminar Dato
 agenda.pop("Juan")
 #del agenda["Juan"]  (OTRA MANERA DE ELIMINAR)
 print(agenda)
 
-#Imprimir y listar datos de la agenda
+# Imprimir y listar datos de la agenda
 for nombre,detalles in agenda.items():
     print(f"""
     Nombre: {nombre}
