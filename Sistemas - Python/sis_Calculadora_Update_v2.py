@@ -16,10 +16,9 @@ print("""¡Bienvenido a este Programa!
       """)
 
 
-
 while True:
     try:    
-        opcion = int(input("Cual opcion escoje usted: "))
+        opcion = int(input("\nCual opcion escoje usted: "))
         if 1 <= opcion <= 7:
             break
         else:
@@ -28,8 +27,6 @@ while True:
     except ValueError:
         print("Ingrese un Numero Valido")
        
-
-
 
 def obtener_datos(opcion):
     try:
@@ -54,17 +51,18 @@ datos = obtener_datos(opcion)
 
 if datos is not None:
     def procesar_opcion(opcion, datos):
-        if opcion == 1:
-            resultado = variable1 + variable2
-        elif opcion == 2:
-            resultado = variable1 - variable2
-        elif opcion == 3:
-            resultado = variable1 * variable2
-        elif opcion == 4:
-            resultado = variable1 / variable2
+        if opcion in (1,2,3,4):
+            resultado = datos[0] + datos[1] if opcion == 1 else \
+                        datos[0] - datos[1] if opcion == 2 else \
+                        datos[0] * datos[1] if opcion == 3 else \
+                        datos[0] / datos[1]
         elif opcion == 5:
-            resultado = variable3 ** potenciador
+            resultado = datos[0] ** datos[1]
         elif opcion == 6:
-            resultado = math.sqrt(raiz_cuadrada)    
-        return
+            resultado = math.sqrt(datos[0])
+        return resultado
+
+resultado = procesar_opcion(opcion, datos)
+
+print(f"\nEl resultado es: {resultado:.2f}\n")
 
