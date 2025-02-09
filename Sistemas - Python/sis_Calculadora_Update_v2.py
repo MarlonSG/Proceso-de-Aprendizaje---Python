@@ -33,39 +33,38 @@ while True:
 
 def obtener_datos(opcion):
     try:
-        if opcion in (1,2,3,4): 
-            variable1 = float(input("Ingrese el Primer Numero: "))
-            variable2 = float(input("Ingrese el Segundo Numero: "))
+        if opcion in (1, 2, 3, 4):
+            num1 = float(input("Ingrese el primer número: "))
+            num2 = float(input("Ingrese el segundo número: "))
+            return num1, num2
         elif opcion == 5:
-            variable3 = float(input("Ingrese el numero a tratar: "))
-            potenciador = float(input("A cuanto desea Potenciar?: "))
+            num = float(input("Ingrese el número a tratar: "))
+            pot = float(input("A cuanto desea Potenciar?: "))
+            return num, pot
         elif opcion == 6:
-            raiz_cuadrada = float(input("Ingrese el numero a sacar Raiz: "))
+            num = float(input("Ingrese el número a sacar Raíz: "))
+            return num,
         else:
-            sys,exit()
+            sys.exit()
     except ValueError:
-        print("Debe Ingresar datos Validos...")    
-    return variable1, variable2, variable3, potenciador, raiz_cuadrada
+        print("Debe Ingresar datos Validos...")
+        return None
 
+datos = obtener_datos(opcion)
 
-variable1, variable2, variable3, potenciador, raiz_cuadrada = obtener_datos(opcion)
+if datos is not None:
+    def procesar_opcion(opcion, datos):
+        if opcion == 1:
+            resultado = variable1 + variable2
+        elif opcion == 2:
+            resultado = variable1 - variable2
+        elif opcion == 3:
+            resultado = variable1 * variable2
+        elif opcion == 4:
+            resultado = variable1 / variable2
+        elif opcion == 5:
+            resultado = variable3 ** potenciador
+        elif opcion == 6:
+            resultado = math.sqrt(raiz_cuadrada)    
+        return
 
-
-def procesar_opcion(opcion, variable1, variable2, variable3, 
-                    potenciador, raiz_cuadrada):
-    if opcion == 1:
-        resultado = variable1 + variable2
-    elif opcion == 2:
-        resultado = variable1 - variable2
-    elif opcion == 3:
-        resultado = variable1 * variable2
-    elif opcion == 4:
-        resultado = variable1 / variable2
-    elif opcion == 5:
-        resultado = variable3 ** potenciador
-    elif opcion == 6:
-        resultado = math.sqrt(raiz_cuadrada)    
-    return print(f"Resultado de la operacion{resultado}")
-
-print(procesar_opcion(opcion, variable1, variable2, variable3, 
-                    potenciador, raiz_cuadrada))
