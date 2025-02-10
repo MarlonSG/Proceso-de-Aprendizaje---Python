@@ -1,3 +1,8 @@
+"""
+ESTA ES UNA ACTUALIZACION DE CALCULADORA, 
+APLICANDO MANEJO DE ERRORES (TRY-EXCEPT)
+"""
+
 import math
 import sys
 
@@ -31,16 +36,28 @@ while True:
 def obtener_datos(opcion):
     try:
         if opcion in (1, 2, 3, 4):
-            num1 = float(input("Ingrese el primer número: "))
-            num2 = float(input("Ingrese el segundo número: "))
-            return num1, num2
+            while True:
+                try:  
+                    num1 = float(input("Ingrese el primer número: "))
+                    num2 = float(input("Ingrese el segundo número: "))
+                    return num1,num2
+                except ValueError:
+                    print("No puede ingresar datos nulos. Ingrese Nuevamente...")            
         elif opcion == 5:
-            num = float(input("Ingrese el número a tratar: "))
-            pot = float(input("A cuanto desea Potenciar?: "))
-            return num, pot
+            while True:
+                try:
+                    num = float(input("Ingrese el número a tratar: "))
+                    pot = float(input("A cuanto desea Potenciar?: "))
+                    return num, pot
+                except ValueError:
+                    print("No puede ingresar datos nulos. Ingrese Nuevamente...")  
         elif opcion == 6:
-            num = float(input("Ingrese el número a sacar Raíz: "))
-            return num,
+            while True:
+                try:
+                    num = float(input("Ingrese el número a sacar Raíz: "))
+                    return num,
+                except ValueError:
+                    print("No puede ingresar datos nulos. Ingrese Nuevamente...")  
         else:
             sys.exit()
     except ValueError:
@@ -50,19 +67,25 @@ def obtener_datos(opcion):
 datos = obtener_datos(opcion)
 
 if datos is not None:
-    def procesar_opcion(opcion, datos):
-        if opcion in (1,2,3,4):
-            resultado = datos[0] + datos[1] if opcion == 1 else \
-                        datos[0] - datos[1] if opcion == 2 else \
-                        datos[0] * datos[1] if opcion == 3 else \
-                        datos[0] / datos[1]
-        elif opcion == 5:
-            resultado = datos[0] ** datos[1]
-        elif opcion == 6:
-            resultado = math.sqrt(datos[0])
-        return resultado
+        def procesar_opcion(opcion, datos):
+            try:
+                if opcion in (1,2,3,4):
+                    resultado = datos[0] + datos[1] if opcion == 1 else \
+                                datos[0] - datos[1] if opcion == 2 else \
+                                datos[0] * datos[1] if opcion == 3 else \
+                                datos[0] / datos[1]
+                elif opcion == 5:
+                    resultado = datos[0] ** datos[1]
+                elif opcion == 6:
+                    resultado = math.sqrt(datos[0])
+                return resultado
+            except TypeError:
+                return None
 
 resultado = procesar_opcion(opcion, datos)
 
-print(f"\nEl resultado es: {resultado:.2f}\n")
+if resultado is not None:
+    print(f"\nEl resultado es: {resultado:.2f}\n")
+else:
+    print("\nHa ocurrido un error Inesperado...\n")
 
