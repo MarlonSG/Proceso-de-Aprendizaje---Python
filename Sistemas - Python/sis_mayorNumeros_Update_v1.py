@@ -3,21 +3,21 @@ print("*** El Mayor de 2 Numeros v1 ***")
 def obtenerNumeros():
     while True:
         try:
-            numero1 = float(input("Ingresa el numero 1: ").strip())
-            numero2 = float(input("Ingresa el numero 2: ").strip())
+            numero1 = float(input("\nIngresa el Primer Numero: ").strip())
+            numero2 = float(input("Ingresa el Segundo Numero: ").strip())
             return numero1, numero2  # Retorna ambos números como una tupla
         except ValueError:
-            print("Ingrese datos validos por favor...")
+            print("\nIngrese datos validos por favor...")
 
 
 
 def calculoNumeros(num1, num2):  # Ahora recibe los números directamente
     if num1 > num2:
-        print(f"\nEl numero {num1:.2f} es mayor que el numero {num2:.2f}")
-    elif num2 > num1:
-        print(f"\nEl numero {num2:.2f} es mayor que el numero {num1:.2f}")
+        print(f"\nEl numero {num1} es mayor que el numero {num2}")
+    elif num1 < num2:
+        print(f"\nEl numero {num2} es mayor que el numero {num1}")
     else:
-        print(f"\nLos números {num1:.2f} y {num2:.2f} son iguales") # Maneja el caso de igualdad
+        print(f"\nLos números {num1} y {num2} son iguales") # Maneja el caso de igualdad
 
 
 datos = obtenerNumeros()
