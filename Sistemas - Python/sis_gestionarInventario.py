@@ -9,7 +9,6 @@ print("*** Sistema de Gestion de Inventario ***")
 while True:
     print("""
         Bienvenido Humano:
-
         Elije una de las opciones:
 
         1. Agregar Elementos
@@ -38,11 +37,15 @@ while True:
                         print("Ingrese una categoría válida.")
                         continue
 
+                    #Crear Sku automaticamente con randint
+                    sku_item = randint(1000000000, 99999999999)
+
                     # Crear un diccionario para el producto y agregarlo a la lista
                     item = {
                         "Nombre": name_item,
                         "Precio": price_item,
-                        "Categoria": category_item
+                        "Categoria": category_item,
+                        "SKU": sku_item
                     }
                     lista_inventario.append(item)  # Usar append para agregar el diccionario a la lista
                     print("Producto agregado al inventario.")
@@ -58,7 +61,7 @@ while True:
             else:
                 print("\nInventario:")  # Encabezado para la lista
                 for contador, item in enumerate(lista_inventario):
-                    print(f'{contador + 1} - Nombre: {item["Nombre"]}, Precio: {item["Precio"]}, Categoría: {item["Categoria"]}')
+                    print(f'{contador + 1} - Nombre: {item["Nombre"]}, Precio: {item["Precio"]}, Categoría: {item["Categoria"]}, SKU: {item["SKU"]}')
 
         elif opcion == 3:
             print("Hasta Luego")
