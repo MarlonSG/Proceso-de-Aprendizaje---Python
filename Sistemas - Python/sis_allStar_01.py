@@ -166,24 +166,60 @@ def operaciones(menu):
             print(f"Error: {e}")
 
 
-# # Funcion para la opcion 3
-# def diccionarios():
-#     print("""
-#     ________________________________________________________
-#     2. Diccionarios
-#     Crea un diccionario con información de personas (nombre,
-#     edad, ciudad). Pide al usuario que ingrese el nombre de
-#     una persona. El programa debe mostrar la información de
-#     esa persona o indicar que no existe
-#     ________________________________________________________
-#     """)
-#
-#     diccionario = {
-#
-#
-#     }
+# Funcion para la opcion 3
+def diccionarios():
+    print("""
+    ________________________________________________________
+    2. Diccionarios
+    Crea un diccionario con información de personas (nombre,
+    edad, ciudad). Pide al usuario que ingrese el nombre de
+    una persona. El programa debe mostrar la información de
+    esa persona o indicar que no existe
+    ________________________________________________________
+    """)
+
+    diccionario = {
+        "Carlos": {
+            "Edad": "20",
+            "Ciudad": "Lima",
+            "Sexo": "Masculino"
+        },
+        "Ariana":{
+            "Edad": "18",
+            "Ciudad": "Tokio",
+            "Sexo": "Femenino"
+        },
+        "Juan": {
+            "Edad": "27",
+            "Ciudad": "New York",
+            "Sexo": "Masculino"
+        },
+        "Maria":{
+            "Edad": "21",
+            "Ciudad": "California",
+            "Sexo": "Femenino"
+        },
+        "Susana":{
+            "Edad": "22",
+            "Ciudad": "Roma",
+            "Sexo": "Femenino"
+        },
+        "Pedro":{
+            "Edad": "24",
+            "Ciudad": "Pennsylvania",
+            "Sexo": "Masculino"
+        },
+        "Karla":{
+            "Edad": "25",
+            "Ciudad": "Paris",
+            "Sexo": "Femenino"
+        }
+    }
+    print(f"Registro de Ultimas personas:")
+    for persona,detalles in diccionario.items():
+        print(f"- {persona}")
 
 
-print(operaciones(menu))
 
+print(diccionarios())
 
