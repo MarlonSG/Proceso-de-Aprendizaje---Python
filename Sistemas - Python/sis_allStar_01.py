@@ -167,10 +167,10 @@ def operaciones(menu):
 
 
 # Funcion para la opcion 3
-def diccionarios():
+def diccionarios(menu):
     print("""
     ________________________________________________________
-    2. Diccionarios
+    3. Diccionarios
     Crea un diccionario con información de personas (nombre,
     edad, ciudad). Pide al usuario que ingrese el nombre de
     una persona. El programa debe mostrar la información de
@@ -219,7 +219,64 @@ def diccionarios():
     for persona,detalles in diccionario.items():
         print(f"- {persona}")
 
+    while(True):
+        try:
+            opcion_diccionario = input("Ingrese un Nombre para consultar su informacion (\"s\" para salir): ")
+            if opcion_diccionario in diccionario:
+                print(f"Persona Encontrada: ")
+                print(f"{opcion_diccionario}: {diccionario[opcion_diccionario]}")
+            elif opcion_diccionario == str("s"):
+                print("Regresando al anterior Menu...")
+                print(menu)      #RVISAR PARA QUE REGRESE HAY BUCLE
+
+            else:
+                print("Persona no Encontrada o Datos Invalidos ....")
+        except Exception as e:
+            print(f"Error: {e}")
+
+#Funcion para la opcion 4
+
+def flujo_control(menu):
+    print("""
+        _______________________________________________________
+        4. Flujo de Control
+        Pide al usuario que ingrese un número. El programa debe 
+        determinar si el número es positivo, negativo o cero, y 
+        si es par o impar
+        _______________________________________________________
+        """)
+    while True:
+        try:
+            numero_flujo = float(input("Ingrese un numero...: "))
+            if numero_flujo > 0:
+                print("El numero es Positivo")
+                break
+            elif numero_flujo < 0:
+                print("El numero es Negativo")
+                break
+            elif numero_flujo == 0:
+                print("El numero es Zero")
+                break
+            else:
+                print("Numero Invalido ....")
+        except Exception as e:
+            print(f"Error: {e}")
+
+    while True:
+        try:
+            if numero_flujo % 2 == 0:
+                print("El numero es Par")
+                break
+            else:
+                print("El numero es Impar")
+                break
+        except Exception as e:
+            print(f"Error: {e}")
+
+    return"____________"
 
 
-print(diccionarios())
+
+
+print(flujo_control(menu))
 
