@@ -8,13 +8,14 @@ print("*** Sistema de Gestion de Inventario ***")
 
 while True:
     print("""
-        Bienvenido Humano:
-        Elije una de las opciones:
+    Bienvenido Humano:
+    Elije una de las opciones:
 
-        1. Agregar Elementos
-        2. Ver el Inventario
-        3. Salir
-        """)
+    1. Agregar Elementos
+    2. Ver el Inventario
+    3.Buscar Por ID (Contador)
+    4. Salir
+    """)
 
     try:
         opcion = int(input("Que opcion elije usted: "))
@@ -61,9 +62,33 @@ while True:
             else:
                 print("\nInventario:")  # Encabezado para la lista
                 for contador, item in enumerate(lista_inventario):
-                    print(f'{contador + 1} - Nombre: {item["Nombre"]}, Precio: {item["Precio"]}, Categoría: {item["Categoria"]}, SKU: {item["SKU"]}')
+                    print(f"""{contador + 1} - Nombre: {item["Nombre"]}, 
+                    Precio: {item["Precio"]}, 
+                    Categoría: {item["Categoria"]}, 
+                    SKU: {item["SKU"]}\n""")
+
 
         elif opcion == 3:
+            while True:
+                try:
+                    contador_buscado = int(input("Ingrese el número de persona a buscar (contador): "))
+                    indice_buscado = contador_buscado - 1  # Ajustar el contador al índice
+                    if 0 <= indice_buscado < len(lista_inventario):
+                        persona_encontrada = lista_inventario[indice_buscado]
+
+                        print(f"Persona con número {contador_buscado} encontrada:")
+                        print(persona_encontrada)  # Imprimir los datos de la persona
+                        break  # Salir del bucle
+
+                    else:
+                        print(f"No se encontró ninguna persona con el número {contador_buscado}.")
+                        break  # Salir del bucle
+
+                except ValueError:
+                    print("Por favor, ingrese un número válido (entero).")
+
+
+        elif opcion == 4:
             print("Hasta Luego")
             sys.exit()
 
