@@ -13,7 +13,7 @@ while True:
 
     1. Agregar Elementos
     2. Ver el Inventario
-    3.Buscar Por ID (Contador)
+    3. Buscar Por ID (Contador)
     4. Salir
     """)
 
