@@ -1,59 +1,128 @@
 from random import randint
 import sys
 
-psw_advanced = "admin123"
-
-
-
-snacks = [
-    {"Producto": "Papitas", "Nombre": "Lays", "Precio": 2.50,
-    },
-    "Gaseosa": {
-        "Nombre": "Pepsi",
-        "Precio": 3.50,
-    },
-    "Chocolate": {
-        "Nombre": "Sublime",
-        "Precio": 4.00,
-    }
+contraseña_admin = "contraseña_secreta"
+carrito = []
+Productos = [
+    {"ID": 1, "Producto": "Papitas", "Nombre": "Lays", "Precio": 2.50},
+    {"ID": 2, "Producto": "Gaseosa", "Nombre": "Pepsi", "Precio": 3.50},
+    {"ID": 3, "Producto": "Chocolate", "Nombre": "Sublime", "Precio": 4.00}
 ]
 
-
-def escoger_productos(menu):
-    while True:
-        try:
-            producto_elegido = input("\nIngrese el ID del producto para agregar (\"salir\" para terminar): ")
-            buscador_productos = producto_elegido - 1
-            if
-
-
-            for contador, item in enumerate(snacks):
-
-
 def mostrar_productos():
-    print("Función para mostrar productos (aún no implementada)")
-    for contador, item in enumerate(snacks):
-        print(f"""{contador + 1}.Producto: {snacks[item]}
-        Nombre: {snacks[item]["Nombre"]}, 
-        Precio: {snacks[item]["Precio"]}, 
-        """)
+    print("Productos Disponibles:")
+    for producto in Productos:
+        print(f"{producto['ID']}. {producto['Producto']} {producto['Nombre']} - ${producto['Precio']}")
 
 def escoger_productos():
-    print("Función para escoger productos (aún no implementada)")
+    mostrar_productos()
+    while True:
+        try:
+            id_producto = int(input("Ingrese el ID del producto que desea agregar al carrito (0 para terminar): "))
+            if id_producto == 0:
+                break
+            producto_seleccionado = next((p for p in Productos if p['ID'] == id_producto), None)
+            if producto_seleccionado:
+                carrito.append(producto_seleccionado)
+                print(f"{producto_seleccionado['Nombre']} agregado al carrito.")
+            else:
+                print("ID de producto inválido.")
+        except ValueError:
+            print("Por favor, ingrese un número entero.")
 
 def ver_carrito():
-    print("Función para ver el carrito (aún no implementada)")
+    if not carrito:
+        print("El carrito está vacío.")
+    else:
+        print("Carrito de Compras:")
+        total = 0
+        for producto in carrito:
+            print(f"{producto['Nombre']} - ${producto['Precio']}")
+            total += producto['Precio']
+        print(f"Total: ${total}")
 
 def finalizar_compra():
-    print("Función para finalizar compra (aún no implementada)")
+    if not carrito:
+        print("El carrito está vacío. No hay nada que comprar.")
+        return
 
-def advanced_mode():
-    password = input("Ingrese la contraseña: ")
-    if password == "contraseña_secreta":  # Reemplaza con tu contraseña
+    print("Resumen de su compra:")
+    total = 0
+    for producto in carrito:
+        print(f"{producto['Nombre']} - ${producto['Precio']}")
+        total += producto['Precio']
+    print(f"Total: ${total}")
+
+    2
+    confirmacion = input("¿Desea confirmar la compra? (sí/no): ").lower()
+    if confirmacion == "si":
+        procesar_pago(total)
+    else:
+        print("Compra cancelada.")
+
+def procesar_pago(total):
+    print("Procesando pago...")
+    print(f"Pago de ${total} realizado con éxito.")
+    carrito.clear()
+    print("¡Gracias por su compra!")
+
+def modo_avanzado():
+    contraseña = input("Ingrese la contraseña de administrador: ")
+    if contraseña == contraseña_admin:
         print("Acceso concedido al modo avanzado.")
-        # Aquí irían las funciones y opciones del modo avanzado
+        mostrar_menu_admin()
     else:
         print("Contraseña incorrecta. Acceso denegado.")
+
+def mostrar_menu_admin():
+    print("""
+    Modo Avanzado:
+
+    1. Agregar Producto
+    2. Eliminar Producto
+    3. Actualizar Producto
+    4. Salir del Modo Avanzado
+    """)
+    while True:
+        opcion = input("Ingrese su opción: ")
+        if opcion == "1":
+            agregar_producto()
+        elif opcion == "2":
+            eliminar_producto()
+        elif opcion == "3":
+            actualizar_producto()
+        elif opcion == "4":
+            print("Saliendo del Modo Avanzado.")
+            break
+        else:
+            print("Opción inválida.")
+
+def agregar_producto():
+    nombre = input("Nombre del producto: ")
+    precio = float(input("Precio del producto: "))
+    id_producto = len(Productos) + 1 # Generar ID automático
+    producto = {"ID": id_producto, "Nombre": nombre, "Precio": precio}
+    Productos.append(producto)
+    print("Producto agregado.")
+
+def eliminar_producto():
+    nombre = input("Nombre del producto a eliminar: ")
+    for producto in Productos:
+        if producto["Nombre"] == nombre:
+            Productos.remove(producto)
+            print("Producto eliminado.")
+            return
+    print("Producto no encontrado.")
+
+def actualizar_producto():
+    nombre = input("Nombre del producto a actualizar: ")
+    for producto in Productos:
+        if producto["Nombre"] == nombre:
+            precio = float(input("Nuevo precio: "))
+            producto["Precio"] = precio
+            print("Producto actualizado.")
+            return
+    print("Producto no encontrado.")
 
 def mostrar_menu():
     print("""
@@ -83,9 +152,6 @@ while True:
         print("¡Gracias por su visita!")
         sys.exit()
     elif opcion == "6":
-        advanced_mode()
+        modo_avanzado()
     else:
         print("Opción inválida. Por favor, ingrese un número del 1 al 6.")
-
-
-
