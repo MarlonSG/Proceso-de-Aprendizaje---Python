@@ -16,7 +16,6 @@ Aquí encontrarás una colección organizada de mis avances en el aprendizaje de
 *   **Programación orientada a objetos (POO):** Clases, objetos, herencia, polimorfismo.
 *   **Manejo de archivos:** Lectura y escritura de archivos.
 *   **Módulos y paquetes:** Uso de bibliotecas estándar y externas.
-*   **Temas avanzados (opcional):** Dependiendo de tu avance, puedes agregar temas como manejo de excepciones, expresiones regulares, programación concurrente, etc.
 
 
 ## Cómo utilizar este repositorio
