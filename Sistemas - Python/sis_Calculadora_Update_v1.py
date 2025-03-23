@@ -1,3 +1,8 @@
+"""
+Version Desactualizada
+FUNCION: CALCULADORA BASICA
+"""
+
 print(f'*** Calculadora con Funciones ***')
 
 def mostrar_menu():

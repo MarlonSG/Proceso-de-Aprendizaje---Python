@@ -1,3 +1,8 @@
+"""
+Version Desactualizada
+FUNCION: VERIFICAR LA CONTRASEÑA Y USUARIO PREDETERMINADA DEL CODIGO
+"""
+
 print("*** Sistema de Autenticacion de Usuarios ***")
 
 def datos_fijos():
